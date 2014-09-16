@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+
+{% block section %} 
+  
+<div id="logsign" align="center">
+  <h2>Signup</h2>
+  
+  <form method="post">
+    <table>
+      <tr>
+	<td class="label">
+	  Email
+	</td>
+	<td>
+	  <input class="signup" type="text" name="email" value="{{email}}"/>
+	</td>
+      </tr>
+      
+      <tr>
+	<td class="error" colspan="2">
+	  {{error_email}}
+	</td>
+      </tr>
+      
+      <tr>
+	<td class="label">
+	  Password
+	</td>
+	<td>
+	  <input class="signup" type="password" 
+		 name="password" value="{{password}}"/>
+	</td>
+      </tr>
+      
+      <tr>
+	<td class="error" colspan="2">
+	  {{error_password}}
+	</td>
+      </tr>
+      
+      <tr>
+	<td class="label">
+	  Verify Password
+	</td>
+	<td>
+	  <input class="signup" type="password" 
+		 name="verify" value="{{verify}}"/>
+	</td>
+      </tr>
+      
+      <tr>
+	<td class="error" colspan="2">
+	  {{error_verify}}
+	</td>
+      </tr>
+
+      <tr>
+	<td class="label">
+	  Secret Code
+	</td>
+	<td>
+	  <input class="signup" type="password" 
+		 name="secretcode" value="{{secretcode}}"/>
+	</td>
+      </tr>
+
+      <tr>
+	<td class="error" colspan="2">
+	  {{error_secretcode}}
+	</td>
+      </tr>
+      
+    </table>
+    <input type="submit" value="Submit">
+    </form>
+    
+</div>
+{% endblock %}

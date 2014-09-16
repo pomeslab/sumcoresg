@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block body %}
+
+{% for e in events %}
+  {{ e.render() | safe }}
+{% endfor %}
+{% endblock %}
+
+    Test User 1
+    Test User 2
+    Test User 3

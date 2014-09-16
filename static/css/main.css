@@ -1,0 +1,173 @@
+1;2c/* This css is learned from the tutorial, and supposed to be OK with
+even older browsers
+http://www.youtube.com/watch?v=P71U-doyzNg&feature=fvwrel
+*/
+
+* {					    /*reset all the defaults*/
+    margin: 0px auto;
+    padding: 0px;
+}
+
+body {text-align:center;}
+
+div#container {
+    /*I like this color*/
+    background-color:#b0c4de;
+    border: 1px solid black;
+
+    font-family: Tahoma, Helvetica, Arial;
+    font-size: 20px;
+
+    width: 1200px;
+    /*top, left, right, bottom (auto takes care of the last three*/
+    margin: 20px auto; 
+    padding: 20px;
+    text-align: center;
+}
+
+header, section, footer, aside, nav, article, hggroup {
+    /* makes all the elements block-level elements */
+    /* not sure what it means at the moment */
+    display: block;
+    }
+
+/* font: solid bold 30px Courier, Helvetica, Arial; */
+h1 {
+    font-family: Helvetica, Tahoma, Arial;
+    font: solid bold 30px;
+}
+
+h2 {
+    font-family: Helvetica, Tahoma, Arial;
+    font: solid bold 20px;
+    margin-bottom: 20px;
+}
+
+/***********************above should be modified a lot************************/
+
+#the_header {
+    background: yellow;
+    border: 1px solid blue;
+    padding: 20px;
+}
+
+#the_nav {
+    text-align: right
+}
+
+#the_nav li {
+    /*note the difference of block & inline-block is well illustrated here*/
+    display: inline-block;
+    list-style: none;
+    padding: 20px;
+    font-family: Courier, Helvetica, Arial;
+    font: bold 20px Courier;
+}
+
+#the_section {
+    float: left;
+    width: 1000px;
+    margin: 0px 40px;		   /*occupied px: width + margin * 2*/
+}
+
+article header h1 {	 /*particularly for report.html*/
+    line-height: 100px;	 /*use line-height instead of vertical-align*/
+}
+
+#the_aside {
+    float: left;
+    width: 110px;
+    margin: 0px 5px;
+    background: #66CCCC;
+    margin-top: 100px;			  /*to align with the report*/
+    padding: 60px 0px;
+}
+
+#the_footer {
+    clear: both;
+    padding-top: 20px;
+}
+
+#the_footer .copyright {
+    padding: 10px;
+    font-size: 14px;
+}
+
+table { 
+    position:aboslute;
+    border-collapse: collapse;
+    font-family: courier;
+}
+
+/* td with the table with id="report"  */
+/* > : parent */
+/* + : immediately follow */
+/* ~ : not necessarily immediately follow */
+table#report td {
+    padding: 30px;
+    font-family: courier;
+    font-size: 14px;
+    vertical-align: top;
+    text-align: center;
+}
+
+table#report td p {
+    font-family: courier;
+    font-weight: bold;
+    font-size: 22px;
+    padding: 10px;
+}
+
+/* rb: right border */
+table#report td[with-rb]
+{
+border-right: solid 1px black;
+}
+
+table#report tr:nth-child(odd) {background: #CCC;}
+table#report tr:nth-child(even) {background: #FFF;}
+
+
+/* ################################LOGIN OR SIGUP################################# */
+div#logsign {
+    margin-top: 40px;
+    /* border: 1px solid red; */
+}
+
+div#logsign td {
+    text-align: right;
+    padding: 5px;
+    /* border: 1px solid yellow; */
+}
+
+div#logsign td.error {
+    text-align: right;
+}
+
+div#logsign input {
+    font-size: 20px;
+}
+
+div#logsign input.rmbme {
+    height: 20px;
+}
+
+div#logsign input.rmbme span{
+    line-height: 20px;
+    padding-left:10px;
+    vertical-align: 1px;
+}
+
+div.signup {
+    background:#FF9900;
+    text-align: center;
+    padding:5px;
+}
+
+div.logsign:hover{
+    background: yellow;
+}
+
+.error {
+    color: red;
+}

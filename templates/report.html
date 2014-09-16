@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+{% block title %}
+Latest report
+{% endblock %}
+<!-- <a href="/cal">Cal</a> -->
+
+{% block nav %} 
+<ul>
+  <a href="/plot/day"><li>Plot</li></a>
+  | 
+  <a href="/plot/histo"><li>Histo</li></a>
+  | 
+  <a href="/logout"><li>Logout</li></a>
+</ul>
+{#  <nav>
+    <ul>
+      <li><a href="/plot/day">Plot</a></li>
+      | 
+      <li><a href="/plot/histo">Histo</a></li>
+      | 
+      <li><a href="/logout">Logout</a></li>
+    </ul>
+  </nav>
+#}
+{% endblock %}
+
+{% block section %}
+  <article>
+    <header>
+      <h1>Latest Report</h1>
+    </header>
+    <table id="report">
+      {% set counter = 0 %}
+      {% for cluster in reports.keys()|sort %}
+	{% set report = reports.get(cluster) %}
+	{% if counter % 2 == 0 %}
+	  <tr>
+	    <td with-rb="true">
+	  {% else %}
+	    <td >
+	  {% endif %}
+	  
+	  <p>
+	    <a href="{{report.cluster.url}}">{{report.cluster.clustername}}</a> |
+	    {{report.cluster.quota}} |
+	    {{report.cluster.cores_per_node}}
+	  </p>
+
+	  {{report.content | safe}}
+	    </td>
+	    {% if counter % 2 == 1 %}
+	      </tr>
+	    {% endif %}
+	  {% set counter = counter + 1 %}
+       {% endfor %}
+     </table>
+     <div style="text-align:left;font-family: 12px Courier, Helvetica, Arial;">
+       <p>Title format: < cluster name > | < # of cores of allocation > | <# of cores per node></p>
+       <p>Note: when # of cores of allocation is 999, it means we have no
+       allocation for the corresponding cluster and such number is arbitrarily
+       assigned.</p>
+     </div>
+  </article>
+{% endblock%}
+
+{% block aside %}
+<aside id="the_aside">
+  I'm just a blank sidebar 
+</aside>
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+{% block title %}
+Login
+{% endblock %}
+
+{% block section %} 
+<div id="logsign" align="center">
+  <h2>Login</h2>
+    <form method="post">
+      <table>
+	<tr>
+	  <td class="label">
+	    Email:
+	  </td>
+	  <td>
+	    <input class="login" type="text" 
+		   size="25px" name="email" 
+		   value="{{email}}"/>
+	  </td>
+	</tr>
+
+	<tr>
+	  <td class="error" colspan="2">
+	    {{error_email}}
+	  </td>
+	</tr>
+	
+	<tr>
+	  <td class="label">
+	    Password:
+	  </td>
+	  <td>
+	    <input class="login" type="password" size="25px" 
+		   name="password" value="{{password}}"/>
+	  </td>
+	</tr>
+	
+	<tr>
+	  <td class="error" colspan="2">
+	    {{error_password}}
+	  </td>
+	</tr>
+
+
+	<tr>
+	  <td colspan="3" style="text-align:center;">
+	    <label>
+	      <input class="rmbme" type="checkbox" name="rmbme" value=""/>
+	      <span>
+		Remember Me
+	      </span>
+	    </label>
+	  </td>
+	</tr>
+
+	<tr>
+	  <td style="text-align:right;">
+	    <input type="submit", value="login"/>
+	  </td>
+	  <td colspan="2">
+	    <div class="signup">
+	      <a href="/signup" style="text-decoration:none;">
+		signup if you haven't
+	      </a>
+	    </div>
+	  </td>
+	</tr>
+
+      </table>
+
+      {# implement forget password later 
+      <a href="#" style="margin-left:30px;">Forgot password (not implemented yet)</a>
+      #}
+
+    </form>
+</div>
+{% endblock %}

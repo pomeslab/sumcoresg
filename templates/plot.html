@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block title %}
+Usage vs. Time
+{% endblock %}
+
+{% block nav %} 
+<ul>
+  <a href="/report"><li>Report</li></a>
+  | 
+  <a href="/plot/histo"><li>Histo</li></a>
+  | 
+  <a href="/logout"><li>Logout</li></a>
+</ul>
+{% endblock %}
+
+{% block section %}
+<article>
+  <header>
+    <div style="text-align:left;">
+      {% for dur in durs %}
+	<a href="/plot/{{dur|trim}}" style="text-decoration:none"> | {{"%10s"|format(dur)}} |</a>
+	&nbsp; &nbsp;
+      {% endfor %}
+    </div>
+  </header>
+  
+  {% for png_id in pngs %}
+    <a href="/plot/{{png_id}}.png">
+      <div style="text-align:center;display:block;">
+	<!-- 16:9 -->
+	<img class="plot" src="/plot/{{png_id}}.png" alt="click to enlarge" width="1120px"; height="630px"/>
+      </div>
+    </a>
+  {% endfor %}
+</article>
+{% endblock %}
+ 

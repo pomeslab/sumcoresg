@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+{% block title %}
+Histogram
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="/static/js/shadowbox-3.0.3/shadowbox.css">
+<script type="text/javascript" src="/static/js/carousel/jquery.min.js"></script>
+<script type="text/JavaScript" src="/static/js/carousel/jquery.mousewheel.js"></script>
+<script type="text/JavaScript" src="/static/js/carousel/cloud-carousel.1.0.5.js"></script>
+<script type="text/JavaScript" src="/static/js/shadowbox-3.0.3/shadowbox.js"></script>
+
+<script type="text/javascript">
+Shadowbox.init();
+</script>
+
+<!-- please go to 
+<!-- http://www.professorcloud.com/mainsite/carousel-integration.htm -->
+<!-- for more info about this carousel -->
+ <script>
+// $(document).ready(function(){
+						   
+// 	// This initialises carousels on the container elements specified, in this case, carousel1.
+// 	$("#carousel1").CloudCarousel(		
+// 		{			
+// 			xPos: 600,
+// 			yPos: 160,
+// 			buttonLeft: $("#left-but"),
+// 			buttonRight: $("#right-but"),
+// 			altBox: $("#alt-text"),
+// 			titleBox: $("#title-text"),
+// 			speed: 0.2,
+// 			minScale: 0.6,
+// 			reflOpacity: 0,
+// 			mouseWheel: 'true',
+// 		}
+// 	);
+// });
+
+ </script>
+{% endblock %}
+
+{% block nav %} 
+<ul>
+  <a href="/report"><li>Report</li></a>
+  | 
+  <a href="/plot"><li>Plot</li></a>
+  | 
+  <a href="/logout"><li>Logout</li></a>
+</ul>
+{% endblock %}
+
+{% block special_section %}
+<section style="float:left;width:1200px;margin:0px;">
+  <div style="text-align:center;width:100%">
+    <div id = "carousel1" style="width:1200px; height:675px;background:#B0C4DE;overflow:scroll;display:inline-block">
+      {% for histo in histos %}
+	<a href="/plot/{{histo}}.png" style="text-decoration:none" rel="shadowbox">
+	  <img class="cloudcarousel" src="/plot/{{histo}}.png" width="480px"; height="300px"/>
+	</a>
+      {% endfor %}
+    </div>
+
+  <!-- Here we define left and right buttons. -->
+  <!-- <input id="left-but"  type="button" value="Left" /> -->
+  <!-- <input id="right-but" type="button" value="Right" /> -->
+  </div>  
+  <!-- Here we define elements to accept the alt and title text from the images. -->
+  <p id="title-text"></p>
+  <p id="alt-text"></p>
+</section>
+{% endblock %}
